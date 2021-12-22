@@ -48,24 +48,9 @@ namespace FirmaGUI.Views
         private async void ImportFromXml_Click(object sender, RoutedEventArgs e)
         {
             string ReadXml = await FileHandler.UserReadFile(".xml");
-            if (string.IsNullOrEmpty(ReadXml)) return;
             string ConvertedJson = FileHandler.XmlToJson(ReadXml);
-            var T = JsonConvert.DeserializeObject<Team>(ConvertedJson);
-            if (T.Manager != null)
-            {
-                FileHandler.SaveFile("TeamDataFile.json", ConvertedJson);
-                RefreshMemberListView();
-            }
-            else
-            {
-                var Dialog = new ContentDialog()
-                {
-                    Title = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogTitle"),
-                    Content = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogContent"),
-                    CloseButtonText = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogCloseButtonText")
-                };
-                await Dialog.ShowAsync();
-            }
+            FileHandler.SaveFile("TeamDataFile.json", ConvertedJson);
+            RefreshMemberListView();
         }
         private void ExportToXml_Click(object sender, RoutedEventArgs e)
         {
@@ -76,24 +61,8 @@ namespace FirmaGUI.Views
         private async void ImportFromJson_Click(object sender, RoutedEventArgs e)
         {
             string ReadJson = await FileHandler.UserReadFile(".json");
-            if(string.IsNullOrEmpty(ReadJson)) return;
-            var T = JsonConvert.DeserializeObject<Team>(ReadJson);
-            if (T.Manager != null)
-            {
-                FileHandler.SaveFile("TeamDataFile.json", ReadJson);
-                RefreshMemberListView();
-            }
-            else
-            {
-                var Dialog = new ContentDialog()
-                {
-                    Title = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogTitle"),
-                    Content = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogContent"),
-                    CloseButtonText = FileHandler.GetStringFromReswFile("Members_ImportWrongDataDialogCloseButtonText")
-                };
-                await Dialog.ShowAsync();
-            }
-            
+            FileHandler.SaveFile("TeamDataFile.json", ReadJson);
+            RefreshMemberListView();
         }
         private void ExportToJson_Click(object sender, RoutedEventArgs e)
         {

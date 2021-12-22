@@ -155,32 +155,18 @@ namespace FirmaGUI.Helpers
         }
         public string JsonToXml(string Json)
         {
-            try { XmlDocument XML = JsonConvert.DeserializeXmlNode(Json, "Xml");
-                StringWriter stringWriter = new StringWriter();
-                XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
-                XML.WriteTo(xmlTextWriter);
-                return stringWriter.ToString();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return null;
-            }
+            XmlDocument XML = JsonConvert.DeserializeXmlNode(Json, "Xml");
+            StringWriter stringWriter = new StringWriter();
+            XmlTextWriter xmlTextWriter = new XmlTextWriter(stringWriter);
+            XML.WriteTo(xmlTextWriter);
+            return stringWriter.ToString();
         }
         public string XmlToJson(string SerializedXml)
         {
-            try
-            {
-                XmlDocument Document = new XmlDocument();
-                Document.LoadXml(SerializedXml);
-                string json = JsonConvert.SerializeXmlNode(Document);
-                return JsonConvert.SerializeObject(JsonConvert.DeserializeObject<XmlDeserializedTeam>(json).Xml);
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return null;
-            }
+            XmlDocument Document = new XmlDocument();
+            Document.LoadXml(SerializedXml);
+            string json = JsonConvert.SerializeXmlNode(Document);
+            return JsonConvert.SerializeObject(JsonConvert.DeserializeObject<XmlDeserializedTeam>(json).Xml);
         }
     }
 }

@@ -354,13 +354,4 @@
   <data name="TeamSetupDialog_Dialog.PrimaryButtonText" xml:space="preserve">
     <value>Import from XML</value>
   </data>
-  <data name="Members_ImportWrongDataDialogCloseButtonText" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="Members_ImportWrongDataDialogContent" xml:space="preserve">
-    <value>Data in the selected file seems to be invalid.</value>
-  </data>
-  <data name="Members_ImportWrongDataDialogTitle" xml:space="preserve">
-    <value>Error importing</value>
-  </data>
 </root>
