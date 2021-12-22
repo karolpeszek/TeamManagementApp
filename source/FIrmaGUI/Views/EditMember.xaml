@@ -1,0 +1,40 @@
+﻿<ContentDialog
+    x:Class="FirmaGUI.Views.EditMember"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirmaGUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    x:Uid="EditMember_Dialog"
+    SecondaryButtonClick="SaveButton_Click"
+    >
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                    <TextBlock x:Uid="TeamSetupDialog_ManagerTitle" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <StackPanel Margin="0, 10, 0, 0" Orientation="Horizontal">
+                        <TextBox Name="MemberName" x:Uid="EditMember_Name" Width="150" TextChanged="TextBox_TextChanged"/>
+                        <TextBox Margin="10, 0, 0, 0" Name="MemberSurname" x:Uid="EditMember_Surname" Width="150" TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                    <StackPanel Margin="0, 10, 0, 0" Orientation="Horizontal">
+                        <TextBox Name="MemberPesel" x:Uid="EditMember_Pesel" Width="150" TextChanged="MemberPesel_Changed"/>
+                        <TextBox Name="MemberFunction" Margin="10, 0, 0, 0" x:Uid="EditMember_Function" Width="150" TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+                    <DatePicker Margin="0, 10, 0, 0" Name="MemberBirthdate" x:Uid="EditMember_Birthdate" Width="310"/>
+                    <DatePicker Margin="0, 10, 0, 0" Name="MemberJoinDate" x:Uid="EditMember_JoinDate" Width="310"/>
+                    <ComboBox Margin="0, 10, 0, 0" Name="MemberSex" x:Uid="EditMember_Gender" SelectionChanged="MemberSex_SelectionChanged">
+                        <TextBlock x:Uid="Genders_Female"/>
+                        <TextBlock x:Uid="Genders_Male"/>
+                        <TextBlock x:Uid="Genders_Nonbinary"/>
+                        <TextBlock x:Uid="Genders_Genderfluid"/>
+
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

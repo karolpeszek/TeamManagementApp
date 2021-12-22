@@ -1,0 +1,47 @@
+﻿<ContentDialog
+    x:Class="FirmaGUI.Views.TeamSetupDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirmaGUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    x:Uid="TeamSetupDialog_Dialog"
+    SecondaryButtonClick="SaveButton_Click"
+    >
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                    <TextBlock x:Uid="TeamSetupDialog_ManagerTitle" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <StackPanel Margin="0, 10, 0, 0" Orientation="Horizontal">
+                        <TextBox Name="TeamManagerName" x:Uid="TeamSetupDialog_ManagerName" Width="150" TextChanged="TextBox_TextChanged"/>
+                        <TextBox Margin="10, 0, 0, 0" Name="TeamManagerSurname" x:Uid="TeamSetupDialog_ManagerSurname" Width="150" TextChanged="TextBox_TextChanged"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0, 10, 0, 0" Orientation="Horizontal">
+                        <TextBox Name="TeamManagerPesel" x:Uid="TeamSetupDialog_ManagerPesel" Width="170" TextChanged="TeamManagerPesel_Changed"/>
+                        <muxc:NumberBox x:Name="TeamManagerExperience" x:Uid="TeamSetupDialog_ManagerExperience" Width="130" Margin="10, 0, 0, 0" AcceptsExpression="False" SpinButtonPlacementMode="Compact" Value="0" Minimum="0" ValueChanged="NumberBox_ValueChanged"/>
+                    </StackPanel>
+                    <DatePicker Margin="0, 10, 0, 0" Name="TeamManagerBirthdate" x:Uid="TeamSetupDialog_TeamManagerBirthdate" Width="310"/>
+                    <ComboBox Margin="0, 10, 0, 0" Name="TeamManagerSex" x:Uid="TeamSetupDialog_TeamManagerSex" SelectionChanged="MemberSex_SelectionChanged">
+                        <TextBlock x:Uid="Genders_Female"/>
+                        <TextBlock x:Uid="Genders_Male"/>
+                        <TextBlock x:Uid="Genders_Nonbinary"/>
+                        <TextBlock x:Uid="Genders_Genderfluid"/>
+
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                    <TextBlock x:Uid="TeamSetupDialog_TeamTitle" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                    <TextBox Width="310" Margin="0, 10, 0, 0" Name="TeamName" x:Uid="TeamSetupDialog_TeamName" TextChanged="TextBox_TextChanged"/>
+                </StackPanel>
+
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ContentDialog>

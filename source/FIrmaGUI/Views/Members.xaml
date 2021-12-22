@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="FirmaGUI.Views.Members"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FirmaGUI.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    >
+    <Page.Resources>
+
+        <AcrylicBrush x:Key="CardBackground" TintColor="{ThemeResource SystemChromeMediumHighColor}" TintOpacity=".3" FallbackColor="{StaticResource SystemRevealAltLowColor}"/>
+    </Page.Resources>
+    <Grid>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel>
+                    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+                        <Grid>
+
+                            <Rectangle Fill="{StaticResource CardBackground}" RadiusX="10" RadiusY="10"/>
+                            <CommandBar DefaultLabelPosition="Right">
+                                <AppBarButton Name="AddMemberButton" Click="AddMemberButton_Click" Icon="Add" x:Uid="Members_AddButton"/>
+                                <AppBarButton Name="DeleteMemberButton" Visibility="Collapsed" Icon="Remove" x:Uid="Members_DeleteButton">
+                                    <AppBarButton.Flyout>
+                                        <Flyout>
+                                            <StackPanel>
+                                                <TextBlock x:Uid="Members_DeleteFlyoutWarning" TextWrapping="WrapWholeWords"/>
+                                                <Button x:Uid="Members_DeleteFlyoutButton" Click="DeletetMemberButton_Click" Margin="0, 10, 0, 0"/>
+                                            </StackPanel>
+                                        </Flyout>
+                                    </AppBarButton.Flyout>
+                                </AppBarButton>
+                                <AppBarButton Name="EditMemberButton" Visibility="Collapsed" Click="EditMemberButton_Click" Icon="Edit" x:Uid="Members_EditButton"/>
+                                <AppBarButton Name="FireEveryoneButton" Icon="Delete" x:Uid="Members_DeleteEveryone">
+                                    <AppBarButton.Flyout>
+                                        <Flyout>
+                                            <StackPanel>
+                                                <TextBlock x:Uid="Members_FireEveryoneFlyoutWarning" TextWrapping="WrapWholeWords"/>
+                                                <Button x:Uid="Members_FireEveryoneFlyoutButton" Click="Fire_EveryoneButton_Click" Margin="0, 10, 0, 0"/>
+                                            </StackPanel>
+                                        </Flyout>
+                                    </AppBarButton.Flyout>
+                                </AppBarButton>
+                                <CommandBar.SecondaryCommands>
+
+                                    <AppBarButton Name="ImportFromXml" Click="ImportFromXml_Click" Icon="Download" x:Uid="Members_ImportFromXml"/>
+                                    <AppBarButton Name="ExportToXml" Click="ExportToXml_Click" Icon="Upload" x:Uid="Members_ExportToXml"/>
+                                    <AppBarButton Name="ImportFromJson" Click="ImportFromJson_Click" Icon="Download" x:Uid="Members_ImportFromJson"/>
+                                    <AppBarButton Name="ExportToJson" Click="ExportToJson_Click" Icon="Upload" x:Uid="Members_ExportToJson"/>
+                                </CommandBar.SecondaryCommands>
+                            </CommandBar>
+                        </Grid>
+                    </ScrollViewer>
+                <ListView Name="MembersList" Margin="0, 10, 0, 0" SelectionMode="Single" SelectionChanged="MemberList_SelectionChange">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Margin="0, 10, 0, 0" FontSize="1"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}" Margin="0, 0, 0, 0" FontSize="16" FontWeight="Medium"/>
+                                    <TextBlock Text="{Binding Surname}" Margin="5, 0, 0, 0" FontSize="16" FontWeight="Medium"/>
+                                </StackPanel>
+                                
+                                <TextBlock Text="{Binding Function}" FontSize="12" Margin="0, 0, 0, 0"/>
+                                <TextBlock Margin="0, 10, 0, 0" FontSize="1"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+                </StackPanel>
+            </ScrollViewer>            
+    </Grid>
+</Page>
