@@ -10,7 +10,7 @@
   <Identity
     Name="53094KarolPeszek.TeamManagementApp"
     Publisher="CN=C0D1E3E0-ECE6-4AA4-824D-67AC7162B586"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="df5f5dc3-64d7-4474-9400-1a56e3e307b7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
